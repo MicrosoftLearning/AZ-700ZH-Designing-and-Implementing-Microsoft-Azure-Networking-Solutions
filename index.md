@@ -1,25 +1,18 @@
----
-title: Online Hosted Instructions
+﻿---
+title: 在线托管的说明
 permalink: index.html
 layout: home
 ---
 
-# Content Directory
+# 内容目录
 
-Hyperlinks to each of the lab exercises and demos are listed below.
+下面列出了每个练习的超链接。
 
-## Labs
+## 练习
 
-{% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Labs'" %}
-| Module | Lab |
+{% assign Exercise = site.pages | where_exp:"page", "page.url contains '/Instructions/Exercises'" %}
+| 模块 | 练习 |
 | --- | --- | 
-{% for activity in labs  %}| {{ activity.lab.module }} | [{{ activity.lab.title }}{% if activity.lab.type %} - {{ activity.lab.type }}{% endif %}]({{ site.github.url }}{{ activity.url }}) |
+{% for activity in Exercise %}| {{ activity.Exercise.module }} | [{{ activity.Exercise.title }}{% if activity.Exercise.type %} - {{ activity.Exercise.type }}{% endif %}]({{ site.github.url }}{{ activity.url }}) |
 {% endfor %}
 
-## Demos
-
-{% assign demos = site.pages | where_exp:"page", "page.url contains '/Instructions/Demos'" %}
-| Module | Demo |
-| --- | --- | 
-{% for activity in demos  %}| {{ activity.demo.module }} | [{{ activity.demo.title }}]({{ site.github.url }}{{ activity.url }}) |
-{% endfor %}
