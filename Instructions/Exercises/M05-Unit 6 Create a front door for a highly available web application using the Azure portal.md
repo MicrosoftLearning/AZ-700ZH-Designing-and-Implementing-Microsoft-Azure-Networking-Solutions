@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 05-单元 6 - 使用 Azure 门户为高度可用的 Web 应用程序创建 Front Door'
     module: '模块 - 在 Azure 中对 HTTP(S) 流量进行负载均衡'
