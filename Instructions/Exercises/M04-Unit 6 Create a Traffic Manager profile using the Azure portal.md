@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 04-第 6 单元 使用 Azure 门户创建流量管理器配置文件'
     module: '模块 - 在 Azure 中对非 HTTP(S) 流量进行负载均衡'
