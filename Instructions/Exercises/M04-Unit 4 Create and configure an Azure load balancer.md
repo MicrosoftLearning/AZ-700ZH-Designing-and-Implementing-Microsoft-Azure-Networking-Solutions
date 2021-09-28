@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 04-第 4 单元 创建并配置 Azure 负载均衡器'
     module: '模块 - 在 Azure 中对非 HTTP(S) 流量进行负载均衡'
