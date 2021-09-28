@@ -126,13 +126,13 @@ Exercise:
 
 1. 在 Azure 门户主页上，选择“**虚拟机**”。
 2. 选择“**ManufacturingTestVM**”。
-3. 在 ManufacturingTestVM 中，选择“**连接**” > “**RDP**”。
+3. 在 **ManufacturingTestVM** 中，选择“**连接” > “RDP**”。
 4. 在“**ManufacturingTestVM | 连接**”中，选择“**下载 RDP 文件**”。
 5. 将 RDP 文件保存到桌面。
 6. 使用 RDP 文件和创建 VM 时指定的用户名和密码连接到 ManufacturingTestVM。
 7. 在 Azure 门户主页上，选择“**虚拟机**”。
 8. 选择“**CoreServicesTestVM**”。
-9. 在 **CoreServicesTestVM** 中，选择“**连接**” > “**RDP**”。
+9. 在 **CoreServicesTestVM** 中，选择“**连接” > “RDP**”。
 10. 在“**CoreServicesTestVM | 连接**” 中，选择“**下载 RDP 文件**”。
 11. 将 RDP 文件保存到桌面。
 12. 使用 RDP 文件和创建 VM 时指定的用户名和密码连接到 CoreServicesTestVM。
@@ -226,7 +226,7 @@ Exercise:
 
 ## 任务 8：将 CoreServicesVnet 连接到 ManufacturingVnet 
 
-1. 在“搜索资源、服务和文档(G+/)”中，输入“**虚拟网络网关**”，然后从结果中选择“**虚拟网络网关**”。
+1. 在“**搜索资源、服务和文档(G+/)**”中，输入“**虚拟网络网关**”，然后从结果中选择“**虚拟网络网关**”。
 
 2. 在虚拟网络网关中，选择 “**CoreServicesVnetGateway**”。
 

@@ -102,7 +102,7 @@ Exercise:
 
 5. 在“**IP 地址分配**”下，选择“**静态**”。
 
-6. 在“**DNS 名称标签”中，键入 **mypublicdns**。
+6. 在“**DNS 名称标签**”中，键入 **mypublicdns**。
 
 7. 从列表中选择你的资源组。
 
@@ -199,7 +199,7 @@ Exercise:
 
 1. 在新虚拟机“**概览**”页面的“**设置**”下，单击“**网络**”。
 
-2. 在“**网络接口**”旁边，单击“**myvirtualmachinexxx**”（例如，myvirtualmachine892）。
+2. 在“**网络接口**”旁边，单击“**myvirtualmachine**xxx”（例如，myvirtualmachine892）。
 
 3. 在“**设置**”下，单击“**IP 配置**”。
 
@@ -217,7 +217,7 @@ Exercise:
 
 2. 在资源列表中，单击 **MyDdosProtectionPlan**。
 
-3. 在**“监视**”下，选择“**警报**”。
+3. 在“**监视**”下，选择“**警报**”。
 
 4. 单击“**新警报规则**”。
 
@@ -255,7 +255,7 @@ Exercise:
 
 1. 创建一个 [BreakingPoint Cloud](https://breakingpoint.cloud/) 帐户
 
-2. 按照下面屏幕截图中的设置来设置 DDoS 测试，但在“目标 IP 地址”框中指定自己的 **MyPublicIPAddress** 资**源的 IP 地址**（例如，51.140.137.219）
+2. 按照下面屏幕截图中的设置来设置 DDoS 测试，但在“目标 IP 地址”框中指定自己的 **MyPublicIPAddress** 资**源的 IP 地址**（例如，**51.140.137.219**）
 
    ![DDoS 测试设置](../media/ddos-test-setup.png)
 

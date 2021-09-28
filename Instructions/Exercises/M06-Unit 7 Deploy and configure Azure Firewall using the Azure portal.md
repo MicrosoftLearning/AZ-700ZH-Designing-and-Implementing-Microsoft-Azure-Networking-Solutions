@@ -328,7 +328,7 @@ Exercise:
    | 目标端口     | **3389**                                                     |
    | 目标类型      | **IP 地址**                                               |
    | 目标           | 输入之前记下的“**fw-pip**”中的防火墙公共 IP 地址。<br />**例如 - 20.90.136.51** |
-   | 已转换的地址    | 输入之前记下的“Srv-Work”中的专用 IP 地址。<br />**例如 - 10.0.2.4** |
+   | 已转换的地址    | 输入之前记下的“**Srv-Work**”中的专用 IP 地址。<br />**例如 - 10.0.2.4** |
    | 已转换的端口       | **3389**                                                     |
 
 
@@ -346,7 +346,7 @@ Exercise:
 
 2. 在资源组列表中，单击你的资源组“**Test-FW-RG**”。
 
-3. 在此资源组的资源列表中，选择 **Srv-Work** 虚拟机的网络接口（例如 srv-work350）。
+3. 在此资源组的资源列表中，选择 **Srv-Work** 虚拟机的网络接口（例如 **srv-work350**）。
 
    ![在资源组中选择 NIC](../media/change-dns-servers-srv-work-nic-1.png)
 
@@ -384,7 +384,7 @@ Exercise:
 
 7. 在证书消息上单击“**是**”。
 
-8. 打开 Internet Explorer 并浏览到 **https://www.google.com**。
+8. 打开 Internet Explorer 并浏览到 **https://www.google.com** 。
 
 9. 在“**安全警报**”对话框中，单击“**确定**”。
 
@@ -394,7 +394,7 @@ Exercise:
 
     ![Srv-work 服务器上的 RDP 会话 - 浏览器显示 google.com](../media/remote-desktop-connection-2.png)
 
-12. 浏览到 **https://www.microsoft.com**。
+12. 浏览到 **https://www.microsoft.com** 。
 
 13. 你应该会受到防火墙阻止。
 

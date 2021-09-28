@@ -83,7 +83,7 @@ ManufacturingVNet 北欧 10.30.0.0/16
 1. 在 Azure 门户主页上，选择“**创建资源**”。
 2. 在“**搜索服务和市场**”中，输入虚拟网络。  
    ‎![Azure 门户的“创建资源”页面，其中突出显示了“搜索服务和市场”框。](../media/create-resource-search-virtual-network-annotated.png)
-3. 在“市场”的“虚拟网络”中，选择“**g**”。  
+3. 在“市场”的“虚拟网络”中，选择“**创建” > “虚拟网络**”。  
    ‎![突出显示了“创建虚拟网络”的“虚拟网络”磁贴。](../media/virtual-network-service-annotated.png)
 4. 使用下表中的信息创建 CoreServicesVnet 虚拟网络。  
    ‎删除或覆盖默认 IP 地址空间 ![Azure 虚拟网络部署的 IP 地址配置 ](../media/default-vnet-ip-address-range-annotated.png)
@@ -114,7 +114,7 @@ ManufacturingVNet 北欧 10.30.0.0/16
 
  7. 若要完成创建 CoreServicesVnet 及其关联子网，请选择“**查看 + 创建**”。
 
- 8. 验证配置是否通过验证，然后选择**“创建”**。
+ 8. 验证配置是否通过验证，然后选择“**创建**”。
  
  9. 基于下表对每个 VNet 重复步骤 1-8  
 

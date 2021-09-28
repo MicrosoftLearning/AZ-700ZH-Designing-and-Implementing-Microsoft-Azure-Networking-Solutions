@@ -30,7 +30,7 @@ Exercise:
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile template.json -TemplateParameterFile parameters.json
    ```
 
-如果选择在本地安装并使用 PowerShell，则本示例需要使用 Azure PowerShell 模块 5.4.1 或更高版本。运行“Get-Module -ListAvailable Az”查找安装的版本。如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/zh-cn/azure/app-service/quickstart-dotnetcore)。如果在本地运行 PowerShell，则还需运行“Connect-AzAccount”以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本示例需要使用 Azure PowerShell 模块 5.4.1 或更高版本。运行 ```Get-Module -ListAvailable Az``` 查找安装的版本。如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/zh-cn/azure/app-service/quickstart-dotnetcore)。如果在本地运行 PowerShell，则还需运行 ```Connect-AzAccount``` 以创建与 Azure 的连接。
 
 在本练习中，你将：
 
@@ -70,15 +70,15 @@ New-AzResourceGroup -Name 'CreatePrivateEndpointQS-rg' -Location 'eastus'
  
 
 ```Azure PowerShell
-## 创建后端子网配置。##
+## Create backend subnet config. ##
 
 $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name myBackendSubnet -AddressPrefix 10.0.0.0/24```
 
-## 创建 Azure Bastion 子网。##
+## Create Azure Bastion subnet. ##
 
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.1.0/24
 
-## 创建虚拟网络。##
+## Create the virtual network. ##
 
 $parameters1 = @{
 
@@ -96,7 +96,7 @@ $parameters1 = @{
 
 $vnet = New-AzVirtualNetwork @parameters1
 
-## 创建堡垒主机的公共 IP 地址。##
+## Create public IP address for bastion host. ##
 
 $parameters2 = @{
 
@@ -114,7 +114,7 @@ $parameters2 = @{
 
 $publicip = New-AzPublicIpAddress @parameters2
 
-## 创建堡垒主机##
+## Create bastion host ##
 
 $parameters3 = @{
 
@@ -155,15 +155,15 @@ New-AzBastion @parameters3
 - Add-AzVMNetworkInterface
 
 ``` Azure PowerShell
-## 为服务器管理员设置凭据并设置密码。##
+## Set credentials for server admin and password. ##
 
 $cred = Get-Credential
 
-## 用于获取虚拟网络配置的命令。##
+## Command to get virtual network configuration. ##
 
 $vnet = Get-AzVirtualNetwork -Name myVNet -ResourceGroupName CreatePrivateEndpointQS-rg
 
-## 用于为 VM 创建网络接口的命令##
+## Command to create network interface for VM ##
 
 $parameters1 = @{
 
@@ -179,7 +179,7 @@ $parameters1 = @{
 
 $nicVM = New-AzNetworkInterface @parameters1
 
-## 创建虚拟机配置。##
+## Create a virtual machine configuration.##
 
 $parameters2 = @{
 
@@ -213,7 +213,7 @@ $vmConfig =
 
 New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Set-AzVMSourceImage @parameters4 | Add-AzVMNetworkInterface -Id $nicVM.Id
 
-## 创建虚拟机 ##
+## Create the virtual machine ##
 
 New-AzVM -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Location 'eastus' -VM $vmConfig 
 
@@ -240,13 +240,13 @@ Azure 为未分配有公共 IP 地址的 Azure 虚拟机或者内部基本 Azure
  
 
 ```Azure PowerShell
-## 将 Web 应用放入变量中。将 <webapp-resource-group-name> 替换为你的 Web 应用的资源组。##
+## Place web app into variable. Replace <webapp-resource-group-name> with the resource group of your webapp. ##
 
-## 将 <your-webapp-name> 替换为你的 Web 应用名称 ##
+## Replace <your-webapp-name> with your webapp name ##
 
 $webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
 
-## 创建专用终结点连接。##
+## Create Private Endpoint connection. ##
 
 $parameters1 = @{
 
@@ -260,17 +260,17 @@ $parameters1 = @{
 
 $privateEndpointConnection = New-AzPrivateLinkServiceConnection @parameters1
 
-## 将虚拟网络放入变量。##
+## Place virtual network into variable. ##
 
 $vnet = Get-AzVirtualNetwork -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Name 'myVNet'
 
-## 禁用专用终结点网络策略 ##
+## Disable private endpoint network policy ##
 
 $vnet.Subnets[0].PrivateEndpointNetworkPolicies = "Disabled"
 
 $vnet | Set-AzVirtualNetwork
 
-## 创建专用终结点
+## Create private endpoint
 
 $parameters2 = @{
 
@@ -305,11 +305,11 @@ New-AzPrivateEndpoint @parameters2
 - New-AzPrivateDnsZoneGroup
 
 ```Azure PowerShell
-## 将虚拟网络放入变量。##
+## Place virtual network into variable. ##
 
 $vnet = Get-AzVirtualNetwork -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Name 'myVNet'
 
-## 创建专用 DNS 区域。##
+## Create private dns zone. ##
 
 $parameters1 = @{
 
@@ -321,7 +321,7 @@ $parameters1 = @{
 
 $zone = New-AzPrivateDnsZone @parameters1
 
-## 创建 DNS 网络链接。##
+## Create dns network link. ##
 
 $parameters2 = @{
 
@@ -337,7 +337,7 @@ $parameters2 = @{
 
 $link = New-AzPrivateDnsVirtualNetworkLink @parameters2
 
-## 创建 DNS 配置 ##
+## Create DNS configuration ##
 
 $parameters3 = @{
 
@@ -349,7 +349,7 @@ $parameters3 = @{
 
 $config = New-AzPrivateDnsZoneConfig @parameters3
 
-## 创建 DNS 区域组。##
+## Create DNS zone group. ##
 
 $parameters4 = @{
 
@@ -390,18 +390,18 @@ New-AzPrivateDnsZoneGroup @parameters4
 - 输入 nslookup <your- webapp-name>.azurewebsites.net。将 <your-webapp-name> 替换为在之前的步骤中创建的 Web 应用的名称。你将收到类似于以下所示内容的消息：
 
   ```| Azure PowerShell |
-  服务器：未知
+  Server: UnKnown
   
-  地址：168.63.129.16
+  Address: 168.63.129.16
   
-  非权威回答：
+  Non-authoritative answer:
   
-  名称：mywebapp8675.privatelink.azurewebsites.net
+  Name: mywebapp8675.privatelink.azurewebsites.net
   
-  地址：10.0.0.5
+  Address: 10.0.0.5
   
-  别名：mywebapp8675.azurewebsites.net  
-
+  Aliases: mywebapp8675.azurewebsites.net  
+  ```
 
 将为 Web 应用名称返回专用 IP 地址 **10.0.0.5**。此地址位于你之前创建的虚拟网络的子网中。
 

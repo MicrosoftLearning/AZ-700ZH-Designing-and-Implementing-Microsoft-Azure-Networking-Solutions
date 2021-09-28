@@ -151,7 +151,7 @@ Exercise:
 
    ![图 23](../media/check-dnsname-1.png)
 
-3. 打开 Web 浏览器选项卡，在地址栏中粘贴（或输入）DNS 名称条目 (contoso-tmprofile.trafficmanager.net)，然后按 **Enter**。
+3. 打开 Web 浏览器选项卡，在地址栏中粘贴（或输入）**DNS 名称**条目 (contoso-tmprofile.trafficmanager.net)，然后按 Enter。
 
 4. 此时应会显示 Web 应用的默认网站。
 
@@ -161,7 +161,7 @@ Exercise:
 
 6. 若要测试故障转移终结点是否正常运行，需要禁用主站点。
 
-7. 在“**Contoso-TMProfile**”页的“**概述**”屏幕上，选择“**myPrimaryEndpoint**”。
+7. 在“**Contoso-TMProfile**”页的“概述”屏幕上，选择“**myPrimaryEndpoint**”。
 
 8. 在“**myPrimaryEndpoint**”页的“**状态**”下，单击“**已禁用**”，然后单击“**保存**”。
 
