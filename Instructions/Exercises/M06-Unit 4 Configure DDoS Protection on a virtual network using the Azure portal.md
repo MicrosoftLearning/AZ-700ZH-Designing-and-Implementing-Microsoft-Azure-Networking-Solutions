@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 06-单元 4 使用 Azure 门户在虚拟网络上配置 DDoS 防护'
     module: '模块 - 设计和实现网络安全'
