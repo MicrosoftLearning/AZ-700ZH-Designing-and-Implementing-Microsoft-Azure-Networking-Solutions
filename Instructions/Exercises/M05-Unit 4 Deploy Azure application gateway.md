@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 05-第 4 单元 部署 Azure 应用程序网关'
     module: '模块 - 在 Azure 中对 HTTP(S) 流量进行负载均衡'
