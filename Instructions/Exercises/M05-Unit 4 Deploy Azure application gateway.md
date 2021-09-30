@@ -1,4 +1,4 @@
----
+﻿---
 Exercise:
     title: '模块 05-第 4 单元 部署 Azure 应用程序网关'
     module: '模块 - 在 Azure 中对 HTTP(S) 流量进行负载均衡'
@@ -91,7 +91,7 @@ Exercise:
 
 19. 接受“**侦听器**”选项卡上的其他设置的默认值=。
 
-    ![在 Azure 门户上添加应用程序网关路由规则](../media/routing-rule-listener-tab.png)
+    ![在 Azure 门户上添加应用程序网关路由规则](../media/Routing-rule-listener-tab.png)
 
 20. 选择“**后端目标**”选项卡来配置剩下的路由规则。
 
