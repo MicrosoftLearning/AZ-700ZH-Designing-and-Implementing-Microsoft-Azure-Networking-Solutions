@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 07- 第 3 单元 使用 Azure PowerShell 创建 Azure 专用终结点'
     module: '模块 - 设计和实现对 Azure 服务的专用访问'
