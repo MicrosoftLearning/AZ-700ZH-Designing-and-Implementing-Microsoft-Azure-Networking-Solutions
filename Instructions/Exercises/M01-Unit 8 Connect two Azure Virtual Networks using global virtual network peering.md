@@ -49,7 +49,7 @@ Exercise:
 |                 | 我确认我有一个具有多租户托管权的合格的 Windows 10 许可证。 | 已选择                              |
 | 磁盘           | 无需任何更改                                          |                                       |
 | 网络      | 虚拟网络                                              | ManufacturingVnet                     |
-|                 | 子网                                                       | DatabaseSubnet (10.30.10.0/24)        |
+|                 | 子网                                                       | ManufacturingSystemSubnet (10.30.10.0/24)|
 |                 | 公共 IP                                                    | （新）ManufacturingVM-ip              |
 |                 | NIC 网络安全组                                   | 基本                                 |
 |                 | 公共入站端口                                         | 允许选定的端口                  |

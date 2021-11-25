@@ -18,11 +18,13 @@ Exercise:
 
 - Azure 订阅中部署了 PremiumV2 层或更高版本应用服务计划的 Azure Web 应用。
 
-1. 在 Azure 门户中，在“**Cloud Shell**”窗格中打开“**PowerShell**”会话。
+1. 在 M07 文件夹中找到并打开 parameters.json。在记事本中打开它，并找到行 "value": "GEN-UNIQUE"。将 GEN-UNIQUE 占位符字符串替换为 Web 应用名称的唯一值。保存此更改。
 
-2. 在“Cloud Shell”窗格的工具栏中单击“上传/下载文件”图标，在下拉菜单中单击“上传”，然后将以下文件上传到 Cloud Shell 主目录中：template.json 和 parameters.json。
+2. 在 Azure 门户中，在 **Cloud Shell** 窗格中打开“**PowerShell**”会话。
 
-3. 部署以下 ARM 模板以创建本练习所需的 PremiumV2 层 Azure Web 应用：
+3. 在“Cloud Shell”窗格的工具栏中单击“上传/下载文件”图标，在下拉菜单中单击“上传”，然后将以下文件上传到 Cloud Shell 主目录中：template.json 和 parameters.json。
+
+4. 部署以下 ARM 模板以创建本练习所需的 PremiumV2 层 Azure Web 应用：
 
    ```powershell
    $RGName = "CreatePrivateEndpointQS-rg"
