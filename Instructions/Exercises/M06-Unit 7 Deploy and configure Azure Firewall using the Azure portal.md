@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 06-单元 7 使用 Azure 门户部署和配置 Azure 防火墙'
     module: '模块 - 设计和实现网络安全'
