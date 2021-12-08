@@ -1,4 +1,4 @@
----
+﻿---
 Exercise:
     title: '模块 03-第 4 单元 配置 ExpressRoute 网关'
     module: '模块 - 设计和实现 Azure ExpressRoute'
@@ -38,7 +38,7 @@ Exercise:
    | -------------------- | -------------------------------- |
    | 虚拟网络名 | CoreServicesVNet                 |
    | 资源组       | ContosoResourceGroup             |
-   | 位置             | 美国西部                          |
+   | 位置             | 美国东部                          |
 
 4. 选择“**下一步: IP 地址**”。
 
@@ -75,9 +75,8 @@ Exercise:
    | 资源组            | ContosoResourceGroup       |
    | **实例详细信息**      |                            |
    | 名称                      | CoreServicesVnetGateway    |
-   | 区域                    | 美国西部                    |
+   | 区域                    | 美国东部                    |
    | 网关类型              | ExpressRoute               |
-   | VPN 类型                  | 基于路由                |
    | SKU                       | 标准                   |
    | 虚拟网络           | CoreServicesVNet           |
    | **公共 IP 地址**     |                            |
@@ -85,9 +84,7 @@ Exercise:
    | 公共 IP 地址名称    | CoreServicesVnetGateway-IP |
    | 公用 IP 地址 SKU     | 基本                      |
    | 分配                | 不可配置           |
-   | 启用主动-主动模式 | 已禁用                   |
-   | 配置 BGP             | 已禁用                   |
-
+   
 3. 选择“**查看 + 创建**”。
 
 4. 确认网关配置通过验证，然后选择“**创建**”。

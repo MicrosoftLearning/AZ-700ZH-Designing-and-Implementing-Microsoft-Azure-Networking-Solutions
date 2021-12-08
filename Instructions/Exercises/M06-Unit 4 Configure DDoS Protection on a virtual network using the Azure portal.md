@@ -1,4 +1,4 @@
----
+﻿---
 Exercise:
     title: '模块 06-单元 4 使用 Azure 门户在虚拟网络上配置 DDoS 防护'
     module: '模块 - 设计和实现网络安全'
@@ -17,6 +17,7 @@ Exercise:
 + 任务 5：配置 DDoS 诊断日志
 + 任务 6：配置 DDoS 警报
 + 任务 7：提交 DDoS 服务请求以运行 DDoS 攻击
++ 任务 8：清理资源
 
 
 
@@ -30,11 +31,11 @@ Exercise:
 
 4. 在“**基本信息**”选项卡上的“**资源组**”中，输入 **MyResourceGroup**。
 
+   ![创建资源组](../media/create-resource-group-ddos-protection-plan.png)
+
 5. 在“**区域**”中，从列表中选择你所在的区域。
 
 6. 单击“**查看 + 创建**”。
-
-   ![创建资源组](../media/create-resource-group-ddos-protection-plan.png)
 
 7. 单击“**创建**”。
 
@@ -44,11 +45,9 @@ Exercise:
 
 ## 任务 2：创建 DDoS 防护计划
 
-1. 在 Azure 门户主页上，选择“**创建资源**”，然后在搜索框中键入 **DDoS**，然后单击出现的“**DDoS 防护计划**”。
+1. 在 Azure 门户主页的搜索框中键入“**DDoS**”，然后单击出现的“**DDoS 防护计划**”。
 
-   ![创建 DDoS 防护计划的起点](../media/create-ddos-protection-plan-start.png)
-
-2. 单击“**创建**”。
+2. 单击“**+ 创建**”。
 
 3. 在“**基本**”信息选项卡上的“**资源组**”列表中，选择刚刚创建的资源组。
 
@@ -102,7 +101,7 @@ Exercise:
 
 5. 在“**IP 地址分配**”下，选择“**静态**”。
 
-6. 在“**DNS 名称标签**”中，键入 **mypublicdns**。
+6. 在“**DNS 名称标签**”中，键入“**mypublicdnsxx**”（其中 xx 是你的姓名首字母以确保唯一性）。
 
 7. 从列表中选择你的资源组。
 
@@ -173,8 +172,8 @@ Exercise:
    | 虚拟机名称  | **MyVirtualMachine**                                         |
    | 区域                | 你所在的区域                                                  |
    | 可用性选项  | **无需基础结构冗余**                   |
-   | 映像                 | **Ubuntu Server 18.04 LTS - Gen 1**                         |
-   | 大小                  | 选择“**查看所有大小**”，然后在列表中选择“**B1ls**”，并选择“**选择**” **（标准_B1ls - 1 个 vcpu，0.5 GiB 内存（3.21 英镑/月））** |
+   | 映像                 | **Ubuntu Server 18.04 LTS -  Gen 1** （如果需要，请选择“配置 VM 生成”链接） |                     
+   | 大小                  | 选择“**查看所有大小**”，然后在列表中选择“**B1ls**”，并选择“**选择**” **（标准_B1ls - 1 个 vcpu，0.5 GiB 内存）** |
    | 身份验证类型   | **SSH 公钥**                                           |
    | 用户名              | **azureuser**                                                |
    | SSH 公钥源 | **生成新密钥对**                                    |
@@ -199,7 +198,7 @@ Exercise:
 
 1. 在新虚拟机“**概览**”页面的“**设置**”下，单击“**网络**”。
 
-2. 在“**网络接口**”旁边，单击“**myvirtualmachine**xxx”（例如，myvirtualmachine892）。
+2. 在“**网络接口**”旁边，单击“**myvirtualmachine**”（例如 myvirtualmachine892）。
 
 3. 在“**设置**”下，单击“**IP 配置**”。
 
@@ -255,7 +254,8 @@ Exercise:
 
 1. 创建一个 [BreakingPoint Cloud](https://breakingpoint.cloud/) 帐户
 
-2. 按照下面屏幕截图中的设置来设置 DDoS 测试，但在“目标 IP 地址”框中指定自己的 **MyPublicIPAddress** 资**源的 IP 地址**（例如，**51.140.137.219**）
+2. 按照下面屏幕截图中的设置来设置 DDoS 测试（可能需要使用试用帐户选择 100k pps 测试大小），但在“目标 IP 地址”框中指定自己的 **MyPublicIPAddress** 资**源的 IP 地址**（例如 **51.140.137.219**）
+   ![DDOSAttack](https://user-images.githubusercontent.com/46939028/138599420-58bef33a-2597-4fa2-919f-bf1614037bc3.JPG)
 
    ![DDoS 测试设置](../media/ddos-test-setup.png)
 
@@ -265,8 +265,21 @@ Exercise:
 
 5. 在“**指标**”框中，从列表中选择“**是否受到 DDoS 攻击**”。
 
-6. 在这里，你可以在发生 DDoS 攻击时看到该攻击。
+6. 在这里，你可以在发生 DDoS 攻击时看到该攻击。请注意，可能需要整整 10 分钟才能看到结果。
 
    ![显示受 DDoS 攻击的资源的指标](../media/metrics-showing-resource-under-attack.png)
 
  
+## 任务 8：清理资源
+
+>**备注**：请记得删除任何新创建且不会再使用的 Azure 资源。删除未使用的资源，确保不产生意外费用。
+
+1. 在 Azure 门户中，在 **Cloud Shell** 窗格中打开“**PowerShell**”会话。
+
+1. 运行以下命令，删除在本模块各个实验室中创建的所有资源组：
+
+   ```powershell
+   Remove-AzResourceGroup -Name 'MyResourceGroup' -Force -AsJob
+   ```
+
+    >**备注**：该命令异步执行（由 -AsJob 参数确定），因此尽管此后可以立即在同一 PowerShell 会话中运行另一个 PowerShell 命令，但实际上要花几分钟才能删除资源组。

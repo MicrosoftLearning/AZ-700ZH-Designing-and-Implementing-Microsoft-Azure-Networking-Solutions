@@ -1,4 +1,4 @@
----
+﻿---
 Exercise:
     title: '模块 05-第 4 单元 部署 Azure 应用程序网关'
     module: '模块 - 在 Azure 中对 HTTP(S) 流量进行负载均衡'
@@ -37,7 +37,7 @@ Exercise:
    | 订阅        | 选择你的订阅。                    |
    | 资源组      | 选择“创建新的 ContosoResourceGroup”       |
    | 应用程序网关 | ContosoAppGateway                            |
-   | 区域              | 选择“**美国西部**”                           |
+   | 区域              | 选择“**美国东部**”                           |
    | 虚拟网络     | 选择“**新建**”                        |
 
 5. 在“创建虚拟网络”页中，输入或选择以下信息：
@@ -147,7 +147,7 @@ Azure 创建应用程序网关可能需要几分钟。请等待部署成功完�
    | 订阅         | 选择你的订阅。                        |
    | 资源组       | 选择 ContosoResourceGroup                      |
    | 虚拟机名称 | 中的机器人 BackendVM1                                       |
-   | 映像                | 选择“**Windows Server 2016 Datacenter - Gen1**”|
+   | 映像                | 选择“**Windows Server 2022 Datacenter- Gen1**”  |
    | 用户名             | TestUser                                         |
    | 密码             | TestPa$$w0rd                                     |
    | 公共入站端口 | 无                                             |
@@ -192,7 +192,7 @@ Set-AzVMExtension `
 
  -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
 
- -Location WestUS
+ -Location EastUS
 ```
 
 4. 使用前面完成的“创建虚拟机”和“安装 IIS 进行测试”中的步骤创建第二个虚拟机并安装 IIS。使用 BackendVM2 作为虚拟机名称，以及作为 **Set-AzVMExtension** cmdlet 的 **VMName** 设置。

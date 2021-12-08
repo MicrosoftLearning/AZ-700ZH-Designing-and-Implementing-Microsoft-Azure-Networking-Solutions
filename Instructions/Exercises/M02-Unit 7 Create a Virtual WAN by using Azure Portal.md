@@ -1,4 +1,4 @@
----
+﻿---
 Exercise:
     title: '模块 02-第 7 单元 使用 Azure 门户创建虚拟 WAN'
     module: '模块 - 设计和实现混合网络'
@@ -108,7 +108,7 @@ Exercise:
 1. 运行以下命令，删除在本模块各个实验室中创建的所有资源组：
 
    ```powershell
-   Remove-AzResourceGroup -Name 'NAME OF THE RG' -Force -AsJob
+   Remove-AzResourceGroup -Name 'ContosoResourceGroup' -Force -AsJob
    ```
 
     >**备注**： 该命令以异步方式执行（由 -AsJob 参数决定），因此，虽然你随后可在同一 PowerShell 会话中立即运行另一个 PowerShell 命令，但实际上要花几分钟才能删除资源组。

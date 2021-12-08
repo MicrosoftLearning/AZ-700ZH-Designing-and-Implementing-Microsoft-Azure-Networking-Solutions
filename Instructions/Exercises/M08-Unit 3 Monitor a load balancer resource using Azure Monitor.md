@@ -1,10 +1,11 @@
----
+﻿---
 Exercise:
-    title: '模块 08-第 3 单元 使用 Azure 防火墙管理器保护虚拟中心'
+    title: '模块 8 - 第 3 单元使用 Azure Monitor 监视负载均衡器资源'
     module: '模块 - 设计和实现网络监视'
 ---
 
-# 模块 08-第 3 单元 使用 Azure 防火墙管理器保护虚拟中心
+# 模块 8 - 第 3 单元使用 Azure Monitor 监视负载均衡器资源
+
 
 在本练习中，你将为虚构的 Contoso Ltd 组织创建内部负载均衡器。然后，你将创建一个 Log Analytics 工作区，并使用 Azure Monitor Insights 查看关于内部负载均衡器的信息。你将查看功能依赖关系视图，然后查看负载均衡器资源的详细指标，并查看负载均衡器的资源运行状况信息。最后，你将配置负载均衡器的诊断设置，以将指标发送到自己创建的 Log Analytics 工作区。 
 
@@ -38,9 +39,9 @@ Exercise:
 
 1. 登录 Azure 门户。
 
-2. 在 Azure 门户主页上，依次单击“**创建资源**”和“**网络**”，然后选择“**虚拟网络**”（如果此页中未列出此资源类型，请使用页面顶部的搜索框进行搜索，然后选择此资源类型）。
+2. 在 Azure 门户主页上，搜索“**虚拟网络**”并选择服务下的虚拟网络。
 
-3. 单击“**创建**”。
+3. 单击“**+ 创建**”。
 
    ![创建虚拟网络](../media/create-virtual-network-1.png)
 
@@ -57,11 +58,11 @@ Exercise:
 
 6. 在“**IP 地址**”选项卡上的“**IPv4 地址空间**”框中，键入“**10.1.0.0/16**”。
 
-7. 在“**子网名称**”下，选择“**默认**”一词。
+7. 在“**子网名称**”上方，选择“**+ 添加子网**”。
 
-8. 在“**编辑子网**”窗格中，提供子网名称“**myBackendSubnet**”，以及子网地址范围“**10.1.0.0/24**”。
+8. 在“**添加子网**”窗格中，提供子网名称“**myBackendSubnet**”，以及子网地址范围“**10.1.0.0/24**”。
 
-9. 单击“**保存**”。
+9. 单击“**添加**”。
 
 10. 单击“**下一步: 安全性**”。
 
@@ -81,33 +82,33 @@ Exercise:
 
 在本部分中，你将创建一个内部标准 SKU 负载均衡器。在练习中创建标准 SKU 负载均衡器而不是基本 SKU 负载均衡器的原因是后面的练习中需要标准 SKU 版本的负载均衡器。
 
-1. 在 Azure 门户主页上，单击“**创建资源**”。
+1. 在 Azure 门户主页顶部的搜索框中，键入“**负载均衡器**”并选择服务下的负载均衡器。
 
-2. 在页面顶部的搜索框中，键入“**负载均衡器**”，然后按 **Enter**（**备注：** 请勿从列表中选择）。
-
-3. 向下滚动到页面底部，然后选择“**负载均衡器**”（名称下方写有“Microsoft”和“Azure 服务”）。
-
-4. 单击“**创建**”。
+2. 单击“**创建**”。
 
    ![创建负载均衡器](../media/create-load-balancer-4.png)
 
-5. 在“**基本**”信息选项卡上，使用下表中的信息创建负载均衡器。
+3. 在“**基本信息**”选项卡上，使用下表中的信息创建负载均衡器。
 
    | **设置**           | **值**                |
    | --------------------- | ------------------------ |
+   | “基本”选项卡            |                          | 
    | 订阅          | 选择你的订阅 |
    | 资源组        | **IntLB-RG**             |
    | 名称                  | **myIntLoadBalancer**    |
    | 区域                | **（美国）美国西部**         |
-   | 类型                  | **内部**             |
    | SKU                   | **标准**             |
+   | 类型                  | **内部**             |
+   | “前端 IP 配置”选项卡 | + 添加前端 IP 配置 |
    | 虚拟网络       | **IntLB-VNet**           |
    | 子网                | **myBackendSubnet**      |
    | IP 地址分配 | **动态**              |
 
-6. 单击“**查看 + 创建**”。
 
-7. 单击“**创建**”。
+4. 单击“**查看 + 创建**”。
+
+
+5. 单击“**创建**”。
 
 
 ## 任务 3：创建后端池
@@ -188,7 +189,7 @@ Exercise:
 
 1. 在 Azure 门户中，在“**Cloud Shell**”窗格中打开“**PowerShell**”会话。
 
-2. 在“Cloud Shell”窗格的工具栏中单击“上传/下载文件”图标，在下拉菜单中单击“上传”，然后将以下文件上传到 Cloud Shell 主目录中：azuredeploy.json、azuredeploy.parameters.vm1.json、azuredeploy.parameters.vm2.json 和 azuredeploy.parameters.vm3.json。
+2. 在“Cloud Shell”窗格的工具栏中单击“上传/下载文件”图标，在下拉菜单中单击“上传”，然后将以下文件从源文件夹“**F:\Allfiles\Exercises\M08**”上传到 Cloud Shell 主目录中：**azuredeploy.json**、**azuredeploy.parameters.vm1.json**、**azuredeploy.parameters.vm2.json** 和 **azuredeploy.parameters.vm3.json**。
 
 3. 部署以下 ARM 模板以创建本练习所需的虚拟网络、子网和 VM：
 
@@ -199,6 +200,8 @@ Exercise:
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.vm2.json
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.vm3.json
    ```
+  
+    > **备注：** 这将需要几分钟才能完成部署。 
 
 ## 任务 7：将 VM 添加到后端池
 
@@ -241,9 +244,9 @@ Exercise:
 
 ### 创建测试 VM
 
-1. 在 Azure 门户主页上，依次单击“**创建资源**”和“**计算**”，然后选择“**虚拟机**”（如果此页中未列出此资源类型，请使用页面顶部的搜索框进行搜索，然后选择此资源类型）。
+1. 在 Azure 主页上，使用全局搜索类型“**虚拟机**”并选择服务下的虚拟机。 
 
-2. 在“**创建虚拟机**”页的“**基本信息**”选项卡中，使用下表中的信息创建第一台 VM。
+2. 在“**基本**”选项卡中选择“**+ 创建; + 虚拟机**”，使用下表中的信息创建第一台 VM。
 
    | **设置**          | **值**                                    |
    | -------------------- | -------------------------------------------- |
@@ -281,7 +284,7 @@ Exercise:
 
 1. 在 Azure 门户主页上，单击“**所有资源**”，然后单击资源列表中的“**myIntLoadBalancer**”。
 
-2. 在“**概述**”页上，记录**专用 IP 地址**，或将其复制到剪贴板。
+2. 在“**概述**”页上，记录**专用 IP 地址**，或将其复制到剪贴板。备注：可能必须选择“**查看更多**”才能查看“**专用 IP 地址**”。
 
 3. 单击“**主页**”，在 Azure 门户主页上单击“**所有资源**”，然后单击刚创建的“**myTestVM**”虚拟机。
 
@@ -438,7 +441,7 @@ Exercise:
 1. 运行以下命令，删除在本模块各个实验室中创建的所有资源组：
 
    ```powershell
-   Remove-AzResourceGroup -Name 'NAME OF THE RG' -Force -AsJob
+   Remove-AzResourceGroup -Name 'IntLB-RG' -Force -AsJob
    ```
 
     >**备注**： 该命令以异步方式执行（由 -AsJob 参数决定），因此，虽然你随后可在同一 PowerShell 会话中立即运行另一个 PowerShell 命令，但实际上要花几分钟才能删除资源组。
