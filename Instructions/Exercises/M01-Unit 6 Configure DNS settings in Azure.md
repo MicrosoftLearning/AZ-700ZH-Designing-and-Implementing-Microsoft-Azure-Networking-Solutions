@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 1 第 6 单元 - 在 Azure 中配置 DNS 设置'
     module: '模块 - Azure 虚拟网络简介'
