@@ -30,9 +30,11 @@ Exercise:
    
 1. 登录 Azure 门户。
 
-2. 在 Azure 门户主页上，导航到全局搜索栏，搜索“**虚拟网络**”并选择服务下的虚拟网络。  ![Azure 门户主页上的“全局搜索栏”中的虚拟网络结果。](../media/global-search-bar.PNG)
+2. 在 Azure 门户主页上，导航到全局搜索栏，搜索“**虚拟网络**”并选择服务下的虚拟网络。  
+   ![Azure 门户主页上的“全局搜索栏”中的虚拟网络结果。](../media/global-search-bar.PNG)
 
-3. 在“**虚拟网络**”页上选择“**创建**”。  ![创建虚拟网络向导。](../media/create-virtual-network.png)
+3. 在“**虚拟网络**”页上选择“**创建**”。  
+   ![创建虚拟网络向导。](../media/create-virtual-network.png)
 
 4. 在“**基本信息**”选项卡上，使用下表中的信息创建虚拟网络。
 
