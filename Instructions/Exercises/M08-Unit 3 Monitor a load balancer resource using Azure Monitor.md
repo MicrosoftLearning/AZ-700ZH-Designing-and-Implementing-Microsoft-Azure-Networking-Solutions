@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 8 - 第 3 单元使用 Azure Monitor 监视负载均衡器资源'
     module: '模块 - 设计和实现网络监视'

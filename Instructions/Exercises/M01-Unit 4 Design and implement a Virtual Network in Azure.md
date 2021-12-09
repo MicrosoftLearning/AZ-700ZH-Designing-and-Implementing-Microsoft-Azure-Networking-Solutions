@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 01 第 4 单元 - 在 Azure 中设计和实现虚拟网络'
     module: '模块 - Azure 虚拟网络简介'

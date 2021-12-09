@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 01 第 8 单元 - 使用全局虚拟网络对等互连连接两个 Azure 虚拟网络'
     module: '模块 - Azure 虚拟网络简介'

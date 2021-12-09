@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 03-第 5 单元 预配 ExpressRoute 线路'
     module: '模块 - 设计和实现 Azure ExpressRoute'

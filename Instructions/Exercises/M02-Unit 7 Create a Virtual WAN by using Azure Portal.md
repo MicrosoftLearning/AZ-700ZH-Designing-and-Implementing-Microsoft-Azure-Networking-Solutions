@@ -1,4 +1,4 @@
-﻿---
+---
 Exercise:
     title: '模块 02-第 7 单元 使用 Azure 门户创建虚拟 WAN'
     module: '模块 - 设计和实现混合网络'
