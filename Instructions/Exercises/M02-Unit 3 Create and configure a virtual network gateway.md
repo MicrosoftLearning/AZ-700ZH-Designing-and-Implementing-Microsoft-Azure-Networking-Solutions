@@ -27,47 +27,41 @@ Exercise:
 
 1. 在 Azure 门户中，在“**Cloud Shell**”窗格中打开“**PowerShell**”会话。
 
-2. 在“Cloud Shell”窗格的工具栏中单击“上传/下载文件”图标，在下拉菜单中单击“上传”，然后将以下文件 azuredeploy.json 和 azuredeploy.parameters.json 上传到 Cloud Shell 主目录中。
+2. 在“Cloud Shell”窗格的工具栏中单击“上传/下载文件”图标，在下拉菜单中单击“上传”，然后将以下文件上传到 Cloud Shell 主目录中：**azuredeploy.json** 和 **azuredeploy.parameters.json**。
 
 3. 部署以下 ARM 模板来创建本练习所需的虚拟网络和子网：
 
    ```powershell
    $RGName = "ContosoResourceGroup"
    #create resource group if it doesnt exist
-   New-AzResourceGroup -Name $RGName -Location West US
+   New-AzResourceGroup -Name $RGName -Location East US
    New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
    ```
 
 ## 任务 2：创建 CoreServicesTestVM
 
-1. 在 Azure 主页上，选择“**虚拟机**”。
+1. 在 Azure 主页上，使用全局搜索类型“**虚拟机**”并选择服务下的虚拟机。
 
-2. 在虚拟机中，选择“**+添加**” > “**+ 从预设配置开始**”。
-   ![突出显示“+添加”和“+从预设配置开始”的虚拟机。](../media/add-virtual-machine-preset.png)
+2. 在虚拟机中，选择“**+ 创建; + 虚拟机**”。
 
-3. 在选择匹配工作负载的推荐默认值中的“**选择工作负载环境**”下，选择“**开发/测试**”。
-
-4. 在“**选择工作负载类型**”下，选择“**常规用途(D 系列)**”， 然后选择“**继续创建 VM**”。
-
-5. 使用下表中的信息创建 VM。
+3. 使用下表中的信息创建 VM。
 
    | **选项卡**         | **选项**                                                   | **值**                             |
    | --------------- | ------------------------------------------------------------ | ------------------------------------- |
    | 基本          | 资源组                                               | ContosoResourceGroup                  |
    |                 | 虚拟机名称                                         | CoreServicesTestVM                    |
-   |                 | 区域                                                       | （美国）美国西部                          |
+   |                 | 区域                                                       | 美国东部                               |
    |                 | 可用性选项                                         | 无需基础结构冗余 |
-   |                 | 映像                                                        | Windows 10 Pro，版本 20H2 - Gen 1  |
+   |                 | 映像                                                        | Windows Server 2022 Datacenter- Gen1  |
    |                 | Azure Spot 实例                                          | 未选择                          |
-   |                 | 大小                                                         | Standard_D2_v3 - 2vcpus，8GiB 内存  |
+   |                 | 大小                                                         | Standard_D2s_v3 - 2vcpus，8GiB 内存 |
    |                 | 用户名                                                     | TestUser                              |
    |                 | 密码                                                     | TestPa$$w0rd!                         |
    |                 | 公共入站端口                                         | 允许选定的端口                  |
    |                 | 选择入站端口                                         | RDP (3389)                            |
-   |                 | 我确认我有一个具有多租户托管权的合格的 Windows 10 许可证。 | 已选择                              |
    | 磁盘           | 无需任何更改                                          |                                       |
    | 网络      | 虚拟网络                                              | CoreServicesVnet                      |
-   |                 | 子网                                                       | DatabaseSubnet (10.20.0.0/24)         |
+   |                 | 子网                                                       | DatabaseSubnet (10.20.20.0/24)        |
    |                 | 公共 IP                                                    | （新）CoreServicesTestVM-ip           |
    |                 | NIC 网络安全组                                   | 基本                                 |
    |                 | 公共入站端口                                         | 允许选定的端口                  |
@@ -78,35 +72,29 @@ Exercise:
    | 标记            | 无需任何更改                                          |                                       |
    | 查看 + 创建 | 检查设置，然后选择“创建”                       |                                       |
 
-6. 部署完成后，选择“**前往资源**”。
+4. 部署完成后，选择“**前往资源**”。
 
 ## 任务 3：创建 ManufacturingTestVM
 
-1. 在 Azure 主页上，选择“**虚拟机**”。
+1. 在 Azure 主页上，使用全局搜索类型“**虚拟机**”并选择服务下的虚拟机。
 
-2. 在虚拟机中，选择“**+添加**” > “**+从预设配置开始**”。
-   ![突出显示“+添加”和“+从预设配置开始”的虚拟机。](../media/add-virtual-machine-preset.png)
+2. 在虚拟机中，选择“**+ 创建; + 虚拟机**”。
 
-3. 在选择匹配工作负载的推荐默认值中的“**选择工作负载环境**”下，选择“**开发/测试**”。
-
-4. 在“**选择工作负载类型**”下，选择“**常规用途(D 系列)**”， 然后选择“**继续创建 VM**”。
-
-5. 使用下表中的信息创建 VM。
+3. 使用下表中的信息创建 VM。
 
    | **选项卡**         | **选项**                                                   | **值**                                 |
    | --------------- | ------------------------------------------------------------ | ----------------------------------------- |
    | 基本          | 资源组                                               | ContosoResourceGroup                      |
    |                 | 虚拟机名称                                         | ManufacturingTestVM                       |
-   |                 | 区域                                                       | （欧洲）北欧                     |
+   |                 | 区域                                                       | 西欧                               |
    |                 | 可用性选项                                         | 无需基础结构冗余     |
-   |                 | 映像                                                        | Windows 10 Pro，版本 20H2 - Gen 1      |
+   |                 | 映像                                                        | Windows Server 2022 Datacenter- Gen1      |
    |                 | Azure Spot 实例                                          | 未选择                              |
-   |                 | 大小                                                         | Standard_D2_v3 - 2vcpus，8GiB 内存      |
+   |                 | 大小                                                         | Standard_D2s_v3 - 2vcpus，8GiB 内存     |
    |                 | 用户名                                                     | TestUser                                  |
    |                 | 密码                                                     | TestPa$$w0rd!                             |
    |                 | 公共入站端口                                         | 允许选定的端口                      |
    |                 | 选择入站端口                                         | RDP (3389)                                |
-   |                 | 我确认我有一个具有多租户托管权的合格的 Windows 10 许可证。 | 已选择                                  |
    | 磁盘           | 无需任何更改                                          |                                           |
    | 网络      | 虚拟网络                                              | ManufacturingVnet                         |
    |                 | 子网                                                       | ManufacturingSystemSubnet (10.40.40.0/24) |
@@ -120,7 +108,7 @@ Exercise:
    | 标记            | 无需任何更改                                          |                                           |
    | 查看 + 创建 | 检查设置，然后选择 “**创建**”                   |                                           |
 
-6. 部署完成后，选择 “**前往资源**”。
+4. 部署完成后，选择“**前往资源**”。
 
 ## 任务 4：使用 RDP 连接到测试 VM
 
@@ -129,13 +117,13 @@ Exercise:
 3. 在 **ManufacturingTestVM** 中，选择“**连接” > “RDP**”。
 4. 在“**ManufacturingTestVM | 连接**”中，选择“**下载 RDP 文件**”。
 5. 将 RDP 文件保存到桌面。
-6. 使用 RDP 文件和创建 VM 时指定的用户名和密码连接到 ManufacturingTestVM。
+6. 使用 RDP 文件、用户名 **TestUser** 和密码 **TestPa$w0rd!** 连接到 ManufacturingTestVM。
 7. 在 Azure 门户主页上，选择“**虚拟机**”。
 8. 选择“**CoreServicesTestVM**”。
 9. 在 **CoreServicesTestVM** 中，选择“**连接” > “RDP**”。
 10. 在“**CoreServicesTestVM | 连接**” 中，选择“**下载 RDP 文件**”。
 11. 将 RDP 文件保存到桌面。
-12. 使用 RDP 文件和创建 VM 时指定的用户名和密码连接到 CoreServicesTestVM。
+12. 使用 RDP 文件、用户名 **TestUser** 和密码 **TestPa$w0rd!** 连接到 CoreServicesTestVM。
 13. 在两个 VM 上的 “**为设备选择隐私设置**” 中，选择“**接受**”。
 14. 在两个 VM 上的“**网络**”中，选择“**是**”。
 15. 在 CoreServicesTestVM 中，打开 PowerShell，然后运行以下命令：ipconfig
@@ -173,7 +161,7 @@ Exercise:
    | 基本          | 项目详细信息   | 订阅                                | 无需任何更改          |
    |                 |                   | ResourceGroup                               | ContosoResourceGroup         |
    |                 | 实例详细信息  | 名称                                        | CoreServicesVnetGateway      |
-   |                 |                   | 区域                                      | 美国西部                      |
+   |                 |                   | 区域                                      | 美国东部                      |
    |                 |                   | 网关类型                                | VPN                          |
    |                 |                   | VPN 类型                                    | 基于路由                  |
    |                 |                   | SKU                                         | VpnGw1                       |
@@ -204,7 +192,7 @@ Exercise:
    | 基本          | 项目详细信息   | 订阅                                | 无需任何更改          |
    |                 |                   | ResourceGroup                               | ContosoResourceGroup         |
    |                 | 实例详细信息  | 名称                                        | ManufacturingVnetGateway     |
-   |                 |                   | 区域                                      | 北欧                 |
+   |                 |                   | 区域                                      | 西欧                  |
    |                 |                   | 网关类型                                | VPN                          |
    |                 |                   | VPN 类型                                    | 基于路由                  |
    |                 |                   | SKU                                         | VpnGw1                       |
@@ -250,9 +238,9 @@ Exercise:
    | IKE 协议                   | IKEv2                             |
    | 订阅                   | 无需任何更改               |
    | 资源组                 | 无需任何更改               |
-   | 位置                       | 美国西部                           |
+   | 位置                       | 美国东部                           |
 
-5. 若要创建连接，请选择 “**创建**”。
+5. 若要创建连接，请选择“**确定**”。
    
 
 ## 任务 9：将 ManufacturingVnet 连接到 CoreServicesVnet
@@ -277,10 +265,9 @@ Exercise:
    | IKE 协议                   | IKEv2                             |
    | 订阅                   | 无需任何更改               |
    | 资源组                 | 无需任何更改               |
-   | 位置                       | 北欧                      |
-   |                                |                                   |
+   | 位置                       | 西欧                       |
 
-5. 若要创建连接，请选择“**创建**”。
+5. 若要创建连接，请选择“**确定**”。
 
 ## 任务 10：验证连接是否连接 
 

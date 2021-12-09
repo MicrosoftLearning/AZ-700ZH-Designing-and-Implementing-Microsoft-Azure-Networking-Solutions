@@ -24,13 +24,7 @@ Exercise:
 
 3. 在“Cloud Shell”窗格的工具栏中单击“上传/下载文件”图标，在下拉菜单中单击“上传”，然后将以下文件上传到 Cloud Shell 主目录中：template.json 和 parameters.json。
 
-4. 部署以下 ARM 模板以创建本练习所需的 PremiumV2 层 Azure Web 应用：
 
-   ```powershell
-   $RGName = "CreatePrivateEndpointQS-rg"
-   
-   New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile template.json -TemplateParameterFile parameters.json
-   ```
 
 如果选择在本地安装并使用 PowerShell，则本示例需要使用 Azure PowerShell 模块 5.4.1 或更高版本。运行 ```Get-Module -ListAvailable Az``` 查找安装的版本。如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/zh-cn/azure/app-service/quickstart-dotnetcore)。如果在本地运行 PowerShell，则还需运行 ```Connect-AzAccount``` 以创建与 Azure 的连接。
 
@@ -44,7 +38,7 @@ Exercise:
 + 任务 6：测试与专用终结点的连接性
 + 任务 7：清理资源
 
-## 任务 1：创建资源组
+## 任务 1：创建资源组并部署必备的 Web 应用
 
 Azure 资源组是部署和管理 Azure 资源的逻辑容器。
 
@@ -53,7 +47,13 @@ Azure 资源组是部署和管理 Azure 资源的逻辑容器。
 ```Azure PowerShell
 New-AzResourceGroup -Name 'CreatePrivateEndpointQS-rg' -Location 'eastus'
 ```
+部署以下 ARM 模板以创建本练习所需的 PremiumV2 层 Azure Web 应用：
 
+   ```powershell
+   $RGName = "CreatePrivateEndpointQS-rg"
+   
+   New-AzResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile template.json -TemplateParameterFile parameters.json
+   ```
 
 ## 任务 2：创建虚拟网络和堡垒主机
 
@@ -142,7 +142,7 @@ New-AzBastion @parameters3
 
 - 使用以下内容创建虚拟机：
 
-- Get-Credential
+- Get-Credential（备注：当出现提示时，输入 VM 的本地管理员帐户凭据，即 Student 和 Pa55w.rd1234）。
 
 - New-AzNetworkInterface
 
@@ -211,9 +211,7 @@ $parameters4 = @{
 
 }
 
-$vmConfig = 
-
-New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Set-AzVMSourceImage @parameters4 | Add-AzVMNetworkInterface -Id $nicVM.Id
+$vmConfig = New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Set-AzVMSourceImage @parameters4 | Add-AzVMNetworkInterface -Id $nicVM.Id
 
 ## Create the virtual machine ##
 
@@ -391,7 +389,7 @@ New-AzPrivateDnsZoneGroup @parameters4
 
 - 输入 nslookup <your- webapp-name>.azurewebsites.net。将 <your-webapp-name> 替换为在之前的步骤中创建的 Web 应用的名称。你将收到类似于以下所示内容的消息：
 
-  ```| Azure PowerShell |
+  ```
   Server: UnKnown
   
   Address: 168.63.129.16
@@ -403,7 +401,8 @@ New-AzPrivateDnsZoneGroup @parameters4
   Address: 10.0.0.5
   
   Aliases: mywebapp8675.azurewebsites.net  
-  ```
+  ```  
+
 
 将为 Web 应用名称返回专用 IP 地址 **10.0.0.5**。此地址位于你之前创建的虚拟网络的子网中。
 
@@ -418,7 +417,7 @@ New-AzPrivateDnsZoneGroup @parameters4
 用完专用终结点和 VM 后，请使用 [Remove-AzResourceGroup](https://docs.microsoft.com/zh-cn/powershell/module/az.resources/remove-azresourcegroup) 删除资源组和组内所有资源：
 
 ```Azure PowerShell
-Remove-AzResourceGroup -Name CreatePrivateEndpointQS-rg -Force
+Remove-AzResourceGroup -Name CreatePrivateEndpointQS-rg -Force -AsJob
 ```
 
 

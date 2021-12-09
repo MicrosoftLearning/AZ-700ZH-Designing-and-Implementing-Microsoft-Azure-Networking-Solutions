@@ -23,30 +23,25 @@ Exercise:
 
 ### 创建 ManufacturingVM
 
-1. 在 Azure 主页上，选择“虚拟机”。
-2. 在虚拟机中，选择“**+ 添加**” > “**+ 从预设配置开始**”。
-   ![突出显示“+添加”和“+从预设配置开始”的虚拟机。](../media/add-virtual-machine-preset.png)
+1. 在 Azure 主页上，使用全局搜索类型“**虚拟机**”并选择服务下的虚拟机。
 
-3. 在选择匹配工作负载的推荐默认值中的 “**选择工作负载环境**” 下，选择 “**开发/测试**”。
+2. 在虚拟机中，选择“**+ 创建; + 虚拟机**”。
 
-4. 在“**选择工作负载类型**”下，选择“**常规用途(D 系列)**”， 然后选择“**继续创建 VM**”。
-
-5. 使用下表中的信息创建 VM。
+3. 使用下表中的信息创建 VM。
 
 | **选项卡**         | **选项**                                                   | **值**                             |
 | --------------- | ------------------------------------------------------------ | ------------------------------------- |
 | 基本          | 资源组                                               | ContosoResourceGroup                  |
 |                 | 虚拟机名称                                         | ManufacturingVM                       |
-|                 | 区域                                                       | （欧洲）北欧                 |
+|                 | 区域                                                       | 西欧                           |
 |                 | 可用性选项                                         | 无需基础结构冗余 |
-|                 | 映像                                                        | Windows 10 Pro，版本 20H2 - Gen 1  |
+|                 | 映像                                                        | Windows Server 2022 Datacenter- Gen1  |
 |                 | Azure Spot 实例                                          | 未选择                          |
-|                 | 大小                                                         | Standard_D2_v3 - 2vcpus，8GiB 内存  |
+|                 | 大小                                                         | Standard_D2s_v3 - 2vcpus，8GiB 内存 |
 |                 | 用户名                                                     | TestUser                              |
 |                 | 密码                                                     | TestPa$$w0rd!                         |
 |                 | 公共入站端口                                         | 允许选定的端口                  |
 |                 | 选择入站端口                                         | RDP (3389)                            |
-|                 | 我确认我有一个具有多租户托管权的合格的 Windows 10 许可证。 | 已选择                              |
 | 磁盘           | 无需任何更改                                          |                                       |
 | 网络      | 虚拟网络                                              | ManufacturingVnet                     |
 |                 | 子网                                                       | ManufacturingSystemSubnet (10.30.10.0/24)|
@@ -61,7 +56,7 @@ Exercise:
 | 查看 + 创建 | 检查设置，然后选择“创建”                       |                                       |
 
 
-6. 部署完成后，选择“**前往资源**”。
+4. 部署完成后，选择“**前往资源**”。
 
 ## 任务 2：使用 RDP 连接到测试 VM
 
@@ -75,7 +70,7 @@ Exercise:
 
 5. 将 RDP 文件保存到桌面。
 
-6. 使用 RDP 文件和创建 VM 时指定的用户名和密码连接到 ManufacturingVM。
+6. 使用 RDP 文件、用户名 **TestUser** 和密码 **TestPa$w0rd!** 连接到 ManufacturingVM。
 
 7. 在 Azure 门户主页上，选择“**虚拟机**”。
 
@@ -87,7 +82,7 @@ Exercise:
 
 11. 将 RDP 文件保存到桌面。
 
-12. 使用 RDP 文件和创建 VM 时指定的用户名和密码连接到 TestVM1。
+12. 使用 RDP 文件、用户名 **TestUser** 和密码 **TestPa$w0rd!** 连接到 TestVM1。
 
 13. 在两个 VM 上的“**为设备选择隐私设置**” 中，选择“**接受**”。
 
@@ -174,12 +169,12 @@ Exercise:
 
    >**备注**： 请记得删除不再使用的所有新创建的 Azure 资源。删除未使用的资源，确保不产生意外费用。
 
-1. 在 Azure 门户中，在“**Cloud Shell**”窗格中打开“**PowerShell**”会话。
+1. 在 Azure 门户中，在 **Cloud Shell** 窗格中打开“**PowerShell**”会话。（如果需要，请使用默认设置创建 Cloud Shell 存储。）
 
 1. 运行以下命令，删除在本模块各个实验室中创建的所有资源组：
 
    ```powershell
-   Remove-AzResourceGroup -Name 'NAME OF THE RG' -Force -AsJob
+   Remove-AzResourceGroup -Name 'ContosoResourceGroup' -Force -AsJob
    ```
 
     >**备注**： 该命令以异步方式执行（由 -AsJob 参数决定），因此，虽然你随后可在同一 PowerShell 会话中立即运行另一个 PowerShell 命令，但实际上要花几分钟才能删除资源组。

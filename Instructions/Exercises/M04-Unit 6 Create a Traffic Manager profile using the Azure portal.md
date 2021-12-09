@@ -37,7 +37,7 @@ Exercise:
    | ---------------- | ------------------------------------------------------------ |
    | 订阅     | 选择你的订阅                                     |
    | 资源组   | 选择“**新建**”，名称： **Contoso-RG-TM1**             |
-   | 名称             | **ContosoWebAppEastUS**                                      |
+   | 名称             | **ContosoWebAppEastUSxx** （其中 xx 是你的姓名首字母以确保名称唯一性） |
    | 发布          | **代码**                                                     |
    | 运行时堆栈    | **ASP.NET V4.8**                                             |
    | 操作系统 | **Windows**                                                  |
@@ -61,7 +61,7 @@ Exercise:
    | **设置**    | **值**                                                    |
    | -------------- | ------------------------------------------------------------ |
    | 资源组 | 选择“**新建**”，名称： **Contoso-RG-TM2**             |
-   | 名称           | **ContosoWebAppWestEurope**                                  |
+   | 名称           | **ContosoWebAppWestEuropexx** （其中 xx 是你的姓名首字母以确保名称唯一性）  |
    | 区域         | **西欧**                                              |
    | Windows 计划   | 选择“**新建**”，名称：**ContosoAppServicePlanWestEurope** |
 
@@ -90,7 +90,7 @@ Exercise:
 
    | **设置**             | **值**                |
    | ----------------------- | ------------------------ |
-   | 名称                    | **Contoso-TMProfile**    |
+   | 名称                    | **Contoso-TMProfilexx** （其中 xx 是你的姓名首字母以确保名称唯一性） |
    | 路由方法          | **优先级**             |
    | 订阅            | 选择你的订阅 |
    | 资源组          | **Contoso-RG-TM1**       |
@@ -185,7 +185,9 @@ Exercise:
 1. 运行以下命令，删除在本模块各个实验室中创建的所有资源组：
 
    ```powershell
-   Remove-AzResourceGroup -Name 'NAME OF THE RG' -Force -AsJob
+
+   Remove-AzResourceGroup -Name 'Contoso-RG-TM1' -Force -AsJob
+
    ```
 
     >**备注**：该命令以异步方式执行（由 -AsJob 参数决定），因此，虽然你随后可在同一 PowerShell 会话中立即运行另一个 PowerShell 命令，但实际上要花几分钟才能删除资源组。

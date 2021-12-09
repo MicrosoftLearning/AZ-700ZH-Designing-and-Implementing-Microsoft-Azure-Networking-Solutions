@@ -34,9 +34,7 @@ Exercise:
 
    ![Azure 门户 - 创建 ExpressRoute 线路菜单](../media/create-expressroute-circuit-menu.png)
 
-3. 在“**创建 ExpressRoute**”页上，使用以下项提供线路的“**资源组**”、“**区域**”和“**名称**”。ExpressRouteResourceGroup、West US 2、TestERCircuit.然后选择“**下一步: 配置 >**”。
-
-   ![Azure 门户 - “创建 ExpressRoute”页的“基本信息”选项卡](../media/expressroute-create-basic.png)
+3. 在“**创建 ExpressRoute**”页上，使用以下项提供线路的“**资源组**”、“**区域**”和“**名称**”。ExpressRouteResourceGroup、美国东部 2、TestERCircuit.然后选择“**下一步: 配置 >**”。
 
 4. 在此页上填写相应值时，请务必指定正确的 SKU 层（“本地”、“标准”或“高级”）和数据计量计费模型（“不限流量”或“按流量计费”）。
 
@@ -97,14 +95,12 @@ Exercise:
    - 若要使用 ExpressRoute 线路，该线路必须处于以下状态：
      - 提供商状态：已预配
      - 线路状态：已启用
-   - 应定期检查线路密钥的预配状态和状态。
-
-6. 选择感兴趣的线路即可查看其属性。选中“**提供商状态**”，确保在继续之前其已转为“**已预配**”。
+   - 应定期检查预配状态和线路状态的状态。
 
 ![Azure 门户 - ExpressRoute 线路属性，其中显示状态现在是已预配](../media/provisioned.png)
 
  
-1. 观看该演示，了解如何创建和预配 ExpressRoute 线路：[Azure ExpressRoute - 如何创建 ExpressRoute 线路 | Azure | 第 9 频道 (msdn.com)](https://channel9.msdn.com/Blogs/Azure/Azure-ExpressRoute-How-to-create-an-ExpressRoute-circuit?term=ExpressRoute&lang-en=true&pageSize=15&skip=15)。 
+观看该演示，了解如何创建和预配 ExpressRoute 线路：[Azure ExpressRoute - 如何创建 ExpressRoute 线路 | Azure | 第 9 频道 (msdn.com)](https://channel9.msdn.com/Blogs/Azure/Azure-ExpressRoute-How-to-create-an-ExpressRoute-circuit?term=ExpressRoute&lang-en=true&pageSize=15&skip=15)。 
 
 恭喜！你已创建 ExpressRoute 线路并找到了服务密钥，在完成对线路的预配时将需要使用此密钥。
 
@@ -132,7 +128,8 @@ Exercise:
 1. 运行以下命令，删除在本模块各个实验室中创建的所有资源组：
 
    ```powershell
-   Remove-AzResourceGroup -Name 'NAME OF THE RG' -Force -AsJob
+   Remove-AzResourceGroup -Name 'ContosoResourceGroup' -Force -AsJob
+   Remove-AzResourceGroup -Name 'ExpressRouteResourceGroup' -Force -AsJob
    ```
    >**备注**：该命令以异步方式执行（由 -AsJob 参数决定），因此，虽然你随后可在同一 PowerShell 会话中立即运行另一个 PowerShell 命令，但实际上要花几分钟才能删除资源组。
 

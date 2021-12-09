@@ -28,10 +28,9 @@ Exercise:
 
 1. 登录到 Azure 门户 ([https://portal.azure.com](https://portal.azure.com/))。
 
-2. 在 Azure 门户主页上，选择“**+ 创建资源**”。
+2. 在 Azure 主页上，使用全局搜索类型“**WebApp**”并选择服务下的“**应用服务**”。
 
-3. 在“创建资源”页中，选择“**WebApp**”。
-   ![Azure 门户中的“创建 Web 应用”。 ](../media/create-a-web-app.png)
+3. 单击“**+ 创建**”以创建 Web 应用。
 
 4. 在“创建 Web 应用”页面的“**基本**”信息选项卡上，输入或选择以下信息。
 
@@ -41,7 +40,7 @@ Exercise:
    | 资源组   | 选择资源组 ContosoResourceGroup               |
    | 名称             | 为 Web 应用输入唯一名称。本示例使用 WebAppContoso-1。 |
    | 发布          | 选择“**代码**”。                                             |
-   | 运行时堆栈    | 选择“**.NET Core 2.1 LTS**”。                              |
+   | 运行时堆栈    | 选择“**[.NET Core 3.1 (LTS)]**”。                              |
    | 操作系统 | 选择“**Windows**”。                                          |
    | 区域           | 选择“**美国中部**”。                                       |
    | Windows 计划     | 选择“**新建**”，然后在文本框中输入 myAppServicePlanCentralUS。 |
@@ -50,9 +49,9 @@ Exercise:
 5. 选择“**查看 + 创建**”，查看“摘要”，然后选择“**创建**”。   
    ‎完成部署可能需要几分钟时间。
 
-6. 创建第二个 Web 应用。在 Azure 门户主页上，选择“**+ 创建资源**”。
+6. 创建第二个 Web 应用。在 Azure 门户主页上，搜索“**WebApp**”。
 
-7. 在“创建资源”页中，选择“**WebApp**”。
+7. 单击“**+ 创建**”以创建 Web 应用。
 
 8. 在“创建 Web 应用”页面的“**基本**”信息选项卡上，输入或选择以下信息。
 
@@ -62,7 +61,7 @@ Exercise:
    | 资源组   | 选择资源组 ContosoResourceGroup               |
    | 名称             | 为 Web 应用输入唯一名称。本示例使用 WebAppContoso-2。 |
    | 发布          | 选择“**代码**”。                                             |
-   | 运行时堆栈    | 选择“**.NET Core 2.1 LTS**”。                              |
+   | 运行时堆栈    | 选择“**[.NET Core 3.1 (LTS)]**”。                              |
    | 操作系统 | 选择“**Windows**”。                                          |
    | 区域           | 选择“**美国东部**”。                                          |
    | Windows 计划     | 选择“**新建**”，然后在文本框中输入 myAppServicePlanEastUS。 |
@@ -87,7 +86,7 @@ Exercise:
    | ----------------------- | -------------------------------------------- |
    | 订阅            | 选择你的订阅。                    |
    | 资源组          | 选择 ContosoResourceGroup                  |
-   | 资源组位置 | 选择“**美国中部**”。                       |
+   | 资源组位置 | 接受默认设置                       |
 
 4. 选择“**下一步: 配置**”。
 
@@ -191,7 +190,9 @@ Exercise:
 1. 运行以下命令，删除在本模块各个实验室中创建的所有资源组：
 
    ```powershell
-   Remove-AzResourceGroup -Name 'NAME OF THE RG' -Force -AsJob
+
+   Remove-AzResourceGroup -Name 'ContosoResourceGroup' -Force -AsJob
+
    ```
 
     >**备注**：该命令以异步方式执行（由 -AsJob 参数决定），因此，虽然你随后可在同一 PowerShell 会话中立即运行另一个 PowerShell 命令，但实际上要花几分钟才能删除资源组。
